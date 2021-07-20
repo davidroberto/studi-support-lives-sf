@@ -12,6 +12,12 @@
 
 <header class="header-top">
     <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
+
+    <form action="{{ path('article_search') }}">
+        <label for="q">Rechercher des articles</label>
+        <input type="text" name="q">
+        <input type="submit">
+    </form>
 </header>
 
 
