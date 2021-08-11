@@ -13,7 +13,13 @@
 <header class="header-top">
     <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
 
-    <p>Zone ADMIN</p>
+    <p>Zone ADMIN pour {{ app.user.email }}</p>
+
+    <ul>
+        <li><a href="{{ path('admin_articles_list') }}">Liste des articles</a></li>
+        <li><a href="{{ path('admin_category_index') }}">Liste des categories</a></li>
+        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    </ul>
 </header>
 
 

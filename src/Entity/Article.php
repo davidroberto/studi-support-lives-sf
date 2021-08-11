@@ -26,12 +26,6 @@ class Article
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(
-     *     min=5,
-     *     max=10,
-     *     minMessage="Merci de remplir plus de 5 caractères",
-     *     maxMessage="Merci de ne pas remplir plus de 10 caractères"
-     * )
      */
     private $content;
 
@@ -39,6 +33,13 @@ class Article
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isPublished;
+
+
 
     public function getId(): ?int
     {
@@ -77,6 +78,18 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(?bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
 
         return $this;
     }

@@ -11,13 +11,30 @@
 <body>
 
 <header class="header-top">
-    <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
+    <a href="{{ path('home') }}">
+        <img class="header-top-image" src="{{ asset('assets/img/logo.jpg') }}" alt="logo super blog">
+    </a>
+
 
     <form action="{{ path('article_search') }}">
         <label for="q">Rechercher des articles</label>
         <input type="text" name="q">
         <input type="submit">
     </form>
+
+    <nav>
+        <ul>
+            <li><a href="{{ path('articles_list') }}">Liste des articles</a></li>
+            <li><a href="{{ path('categories_list') }}">Liste des categories</a></li>
+
+            {% if app.user %}
+                <li><a href="{{ path('admin_dashboard') }}">Zone admin</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Zone admin</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
 </header>
 
 
